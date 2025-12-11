@@ -411,3 +411,6 @@ RAG succeeds because the LLM never answers from memory alone; it answers from **
 
 You answer → I refine → then we move to the **next RAG sections** (Context window, embeddings selection, or practical coding).
 
+<div style="text-align:center">
+  <img src="assets/rag-architecture-diagram.svg">
+</div>
