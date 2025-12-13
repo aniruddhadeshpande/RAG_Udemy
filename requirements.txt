@@ -12,3 +12,9 @@ pandas
 langchain-core
 langchain-text-splitters
 pymupdf
+docx2txt
+unstructured
+docx
+python-docx
+openpyxl
+msoffcrypto-tool
