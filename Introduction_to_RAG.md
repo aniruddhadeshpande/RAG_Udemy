@@ -414,3 +414,28 @@ You answer → I refine → then we move to the **next RAG sections** (Context w
 <div style="text-align:center">
   <img src="assets/rag-architecture-diagram.svg">
 </div>
+
+
+Why does RAG reduce hallucination?
+Answer: RAG share external knowledge at runtime to LLM, it is combination trained LLM info and external info
+
+Why do enterprises prefer RAG over fine-tuning for policy-related queries?
+Answer: It is better where frequent document are required to updates, Always up-to-date answers.
+
+Which scenario fits fine-tuning better than RAG?
+Answer: Deep specialization where domain specific knowledge fine tuned.
+
+What does augmentation add to retrieved content?
+Answer: Metadata to enrich context before passing to LLM.
+
+Why do we convert the user query into vectors?
+Answer: After data ingest into chunks are stored in vector DB, user query converted into embeddings for similarity search.
+
+How does similarity search decide which chunks to retrieve?
+Answer: Cosine similarity or L2 distance simalarity used to search embedded data.Result = Top-K most relevant chunks
+
+Why is augmentation needed before sending context to the LLM?
+Answer: Enrich the retrieved text with metadata: source, date, document type
+Metadata enriches the context so LLM answers more accurately.
+
+After verifying answers refer following topics related subtitle and image

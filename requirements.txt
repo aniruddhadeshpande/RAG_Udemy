@@ -8,3 +8,7 @@ sentence-transformers
 pypdf
 python-dotenv
 ipykernel
+pandas
+langchain-core
+langchain-text-splitters
+pymupdf
