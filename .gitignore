@@ -83,4 +83,4 @@ logs/
 .cache/
 
 import_image.py
-trained_model/
+*.db
