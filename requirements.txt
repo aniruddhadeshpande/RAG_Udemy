@@ -21,3 +21,5 @@ msoffcrypto-tool
 jq
 matplotlib
 langchain-huggingface
+chromadb
+langchain-core
