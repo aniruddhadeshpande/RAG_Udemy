@@ -85,3 +85,5 @@ logs/
 import_image.py
 *.db
 chroma_db_two/
+chroma_db_three/
+faiss_vectorstore/
