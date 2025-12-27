@@ -23,3 +23,5 @@ matplotlib
 langchain-huggingface
 chromadb
 langchain-core
+langchain-astradb
+langchain-pinecone
