@@ -25,3 +25,4 @@ chromadb
 langchain-core
 langchain-astradb
 langchain-pinecone
+rank_bm25
