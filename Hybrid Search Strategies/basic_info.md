@@ -808,3 +808,167 @@ Answer this in **one sentence**:
 👉 **Why don’t we use the reranker directly instead of the retriever?**
 
 (Reply, and after that I’ll move to the **practical intuition or comparison: Hybrid scoring vs Reranking**.)
+
+Great, this fits perfectly with your **Hybrid Search → RAG retrieval strategy** track.
+Let’s study **MMR (Maximal Marginal Relevance)** *conceptually*, not as a formula to memorize.
+
+I’ll **guide**, not dump answers.
+We’ll go in **small steps**, and I’ll ask you **one check question at the end**.
+
+---
+
+## 1️⃣ The Core Problem MMR Solves (Start from intuition)
+
+First, forget the formula.
+
+Imagine a **vector search retriever** in a RAG system.
+
+* You ask: *“How to use LangChain for RAG?”*
+* Retriever returns **Top-5 chunks**
+* But all 5 chunks say **almost the same thing** (same paragraph rephrased)
+
+👉 What’s the issue?
+
+**Problem:**
+Even though results are *relevant*, they are **redundant**.
+
+This is exactly the problem highlighted in your notes (page 1–2 of the PDF) .
+
+---
+
+## 2️⃣ What MMR Optimizes (Very Important for Interviews)
+
+MMR **does NOT** just optimize relevance.
+
+It optimizes **two competing objectives at the same time**:
+
+1. **Relevance to the query**
+2. **Diversity among selected documents**
+
+Your notes phrase this as:
+
+> “Balance relevance and novelty” 
+
+So MMR is a **trade-off mechanism**, not a ranking trick.
+
+---
+
+## 3️⃣ MMR in One Sentence (Memorize-worthy)
+
+> **“Pick documents that are highly relevant to the query, but minimally redundant with what I’ve already selected.”**
+
+This single sentence explains **why MMR exists**.
+
+---
+
+## 4️⃣ How MMR Thinks (Selection Logic, Not Math)
+
+MMR works **iteratively**:
+
+### Step 1: First document
+
+* Pick the **most relevant** document to the query
+* (Pure cosine similarity, no diversity yet)
+
+➡ Everyone agrees on this step.
+
+---
+
+### Step 2: Second document (MMR starts here)
+
+Now MMR asks **two questions at once**:
+
+1. ❓ *How relevant is this candidate to the query?*
+2. ❓ *How similar is this candidate to the already-selected document(s)?*
+
+If it’s:
+
+* Very relevant ✅
+* But very similar ❌
+
+→ MMR **penalizes it**
+
+This logic is shown clearly in your worked example (page 2–3) .
+
+---
+
+## 5️⃣ What the λ (Lambda) Really Means (Conceptually)
+
+You already saw:
+
+[
+\text{MMR} = \lambda \cdot \text{Relevance} - (1-\lambda) \cdot \text{Redundancy}
+]
+
+But **don’t think math — think control knob**.
+
+### λ controls behavior:
+
+| λ value | Behavior                                               |
+| ------- | ------------------------------------------------------ |
+| λ → 1   | Almost pure relevance (acts like normal vector search) |
+| λ → 0   | Aggressive diversity (coverage over precision)         |
+
+Your notes explicitly mention this as a **tunable parameter** .
+
+👉 In RAG, λ ≈ **0.5–0.7** is common because we want:
+
+* Relevant
+* But non-duplicated context
+
+---
+
+## 6️⃣ Why MMR Is Especially Important in RAG
+
+From your “When to use MMR” notes :
+
+### In RAG, MMR helps because:
+
+* LLM context windows are **limited**
+* Redundant chunks = **wasted tokens**
+* Diverse chunks = **richer grounding**
+
+So MMR improves:
+
+* Context quality
+* Answer completeness
+* Reduced hallucination risk
+
+---
+
+## 7️⃣ When NOT to Use MMR (Very Interview-Relevant)
+
+From your notes (last page) :
+
+❌ Skip MMR when:
+
+* You only want **top-1 precision**
+* Context window is extremely small
+* Documents are already diverse
+* You already apply **LLM reranking**
+
+👉 Key idea:
+**MMR is a retriever-level diversity tool, not a reranker replacement.**
+
+---
+
+## 8️⃣ MMR vs Reranking (Mental Model)
+
+| Technique | Happens when     | Purpose           |
+| --------- | ---------------- | ----------------- |
+| MMR       | During retrieval | Reduce redundancy |
+| Reranking | After retrieval  | Improve ordering  |
+
+This distinction often separates **average** from **strong** RAG answers in interviews.
+
+---
+
+## 9️⃣ Quick Check (Answer in your own words)
+
+Don’t rush — think conceptually 👇
+
+> **Why is cosine similarity alone insufficient for RAG retrieval, and how does MMR fix that?**
+
+Reply with **2–3 lines**, and once you answer, we’ll move cleanly to:
+
+➡ **Next topic: Reranking Hybrid Search Strategy (Topic 44)**
