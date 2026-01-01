@@ -26,3 +26,5 @@ langchain-core
 langchain-astradb
 langchain-pinecone
 rank_bm25
+wikipedia
+lxml

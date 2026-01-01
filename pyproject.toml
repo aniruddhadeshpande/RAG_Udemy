@@ -21,6 +21,7 @@ dependencies = [
     "langchain-openai>=1.1.1",
     "langchain-pinecone>=0.2.13",
     "langchain-text-splitters>=1.0.0",
+    "lxml>=6.0.2",
     "matplotlib>=3.10.8",
     "msoffcrypto-tool>=5.4.2",
     "nbconvert>=7.16.6",
@@ -34,4 +35,5 @@ dependencies = [
     "sentence-transformers>=5.1.2",
     "tiktoken>=0.12.0",
     "unstructured>=0.18.21",
+    "wikipedia>=1.4.0",
 ]
