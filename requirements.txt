@@ -28,3 +28,4 @@ langchain-pinecone
 rank_bm25
 wikipedia
 lxml
+langchain_google_genai
