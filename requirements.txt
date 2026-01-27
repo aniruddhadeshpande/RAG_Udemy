@@ -30,3 +30,5 @@ wikipedia
 lxml
 langchain_google_genai
 arxiv
+langchain-tavily
+langgraph_supervisor
